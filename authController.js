@@ -33,7 +33,7 @@ class authController {
        const userRole = await Role.findOne({value: 'USER'})
        const user = new User({username,password: hashPassword,roles:[userRole.value ]})
        await user.save()
-       return res.json({ message:'Пользователь успешно зарегестрирован'})
+       return res.json({ message:'Пользователь успешно зарегистрирован'})
       } catch(e){
         console.log(e)
         res.status(400).json({massage: 'Registration error'}) 
@@ -59,8 +59,8 @@ class authController {
     }
     async getUsers(req,res){
         try{
-          
-         res.json('server work')
+          const users = await User.find()
+         res.json(users)
         } catch(e){
           
         } 
