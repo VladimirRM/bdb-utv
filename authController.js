@@ -32,7 +32,8 @@
 
 
 // module.exports = new authController()
-
+ const User = require('./models/User')
+ const Role = require('./models/Role')
 
 class authController {
     async registration(req,res){
@@ -51,7 +52,11 @@ class authController {
     }
     async getUsers(req,res){
         try{
-
+             const userRole = new Role()
+             const adminRole = new Role({value: "ADMIN"})
+              await userRole.save()
+              await adminRole.save()
+         res.json('server work')
         } catch(e){
           
         } 
