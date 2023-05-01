@@ -22,10 +22,12 @@
 // start()
 
 const express = require('express')
-const { connect } = require('http2')
-const { default: mongoose } = require('mongoose')
+const mongoose = require('mongoose')
+const authRouter = require('./authRouter')
 
 const app = express()
+app.use(express.json())
+app.use('/auth',authRouter)
 
 const PORT = process.env.PORT || 5000
 
