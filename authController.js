@@ -8,7 +8,6 @@ class authController {
     }
     async login(req,res){
         try{
-
         }catch(e){
             
         }
@@ -16,6 +15,7 @@ class authController {
     }
     async getUsers(req,res){
         try{
+            res.json('server work')
 
         }catch(e){
             
