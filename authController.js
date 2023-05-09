@@ -4,7 +4,13 @@ const bcrypt = require('bcryptjs');
 const jwt =require('jsonwebtoken')
 const {validationResult} = require('express-validator')
 
-const generateAccessToken
+const generateAccessToken = (id,roles)=>{
+        const payload = {
+            id,
+            roles
+        }
+        return jwt.sign(payload,) 
+}
 
 
 class authController {
