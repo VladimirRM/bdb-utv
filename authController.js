@@ -1,7 +1,11 @@
 const User = require('./models/User')
 const Role = require('./models/Role')
 const bcrypt = require('bcryptjs');
+const jwt =require('jsonwebtoken')
 const {validationResult} = require('express-validator')
+
+const generateAccessToken
+
 
 class authController {
     async registration (req,res){
@@ -35,7 +39,7 @@ class authController {
             const validPassword = bcrypt.compareSync(password,user.password)
             if(!validPassword){
                 return res.status(400).json({message:`Введен неверный пароль` })
-
+             const token = generateAccessToken()
             }
         }catch(e){
             console.log(e)
